@@ -3,7 +3,7 @@ const sequelize = require('../db/db');
 
 class Perfil extends Model {}
 Perfil.init({
-    usuario: {
+    id_usuario: {
         type: DataTypes.INTEGER,
         primaryKey: true
     },
@@ -11,7 +11,6 @@ Perfil.init({
     seguidos: DataTypes.INTEGER,
     seguidores: DataTypes.INTEGER,
     biografia: DataTypes.TEXT,
-    mail_user: DataTypes.STRING
 }, {
     sequelize,
     modelName: "perfil",

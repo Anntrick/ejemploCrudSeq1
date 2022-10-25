@@ -4,20 +4,9 @@ const router = express.Router();
 
 const Usuario = require('../models/usuario')
 
+const UserController = require('../controllers/UsuarioController')
 
-
-router.get('/show_users', async (req, res) => {
-    try{
-        let data = await Usuario.findAll()    
-        res.send(data)
-    } catch(e){
-        res.send(e)
-    }
-
-    // sequelize.query('SELECT * FROM usuario').then(user => {
-    //     res.send(user);
-    //     });
-})
+router.get('/show_users', UserController.getUsers)
 
 router.post('/register', (req, res) => {
     let data = req.body
