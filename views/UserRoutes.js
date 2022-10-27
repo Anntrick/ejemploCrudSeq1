@@ -1,12 +1,12 @@
 
 const express = require('express');
 const router = express.Router();
-
+const requestTime = require('../middlewares/requestTime')
 const Usuario = require('../models/usuario')
 
 const UserController = require('../controllers/UsuarioController')
 
-router.get('/show_users', UserController.getUsers)
+router.get('/show_users', requestTime, UserController.getUsers)
 
 router.post('/register', (req, res) => {
     let data = req.body
